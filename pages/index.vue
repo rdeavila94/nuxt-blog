@@ -3,15 +3,39 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-
+    <PostList :posts="posts" />
   </div>
 </template>
 <script>
-import PostPreview from "@/components/Posts/PostPreview";
+import PostList from "@/components/Posts/PostList";
 
 export default {
   components: {
-    PostPreview
+    PostList
+  },
+  asyncData() {
+    return new Promise((res, rej) => {
+      setTimeout(
+        () =>
+          res({
+            posts: [
+              {
+                id: "1",
+                title: "First Post",
+                previewText: "This is our first post",
+                thumbnail: "https://i.ytimg.com/vi/wVmuQH_CsYg/hqdefault.jpg"
+              },
+              {
+                id: "2",
+                title: "Second Post",
+                previewText: "This is our second post",
+                thumbnail: "https://i.ytimg.com/vi/wVmuQH_CsYg/hqdefault.jpg"
+              }
+            ]
+          }),
+        2000
+      );
+    });
   }
 };
 </script>
@@ -24,7 +48,7 @@ export default {
   box-sizing: border-box;
   background-position: center;
   background-size: cover;
-  background-image: url('~assets/images/main-page-background.jpg');
+  background-image: url("~assets/images/main-page-background.jpg");
 }
 
 .intro h1 {
