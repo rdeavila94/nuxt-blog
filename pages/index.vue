@@ -13,29 +13,10 @@ export default {
   components: {
     PostList
   },
-  asyncData() {
-    return new Promise((res, rej) => {
-      setTimeout(
-        () =>
-          res({
-            posts: [
-              {
-                id: "1",
-                title: "First Post",
-                previewText: "This is our first post",
-                thumbnail: "https://i.ytimg.com/vi/wVmuQH_CsYg/hqdefault.jpg"
-              },
-              {
-                id: "2",
-                title: "Second Post",
-                previewText: "This is our second post",
-                thumbnail: "https://i.ytimg.com/vi/wVmuQH_CsYg/hqdefault.jpg"
-              }
-            ]
-          }),
-        2000
-      );
-    });
+  computed: {
+    posts() {
+      return this.$store.getters.getPosts;
+    } 
   }
 };
 </script>
