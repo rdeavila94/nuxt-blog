@@ -7,6 +7,7 @@
 <script>
 
 export default {
+  middleware: 'log',
   computed: {
     posts() {
       return this.$store.getters.getPosts;
