@@ -24,11 +24,13 @@ export default {
   ** Global CSS
   */
   css: [
+    '~assets/styles/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/core-components.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,5 +51,12 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  env: {
+    baseUrl: 'https://nuxt-blog-7f47f.firebaseio.com'
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
